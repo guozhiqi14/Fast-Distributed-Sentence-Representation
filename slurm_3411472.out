@@ -1,0 +1,68 @@
+all_tasks False
+attention_dim 64
+batch_size 32
+bidirectional False
+clip_norm 5
+combine_hidden sum
+comp_mode hw
+comp_nlayers 0
+conj_coarse False
+conj_task True
+cont_batch 0
+cont_compare 
+cont_model 
+cont_optim 
+data_folder ./Data/GutenWiki
+decode_voc_size 20000
+disclm_task False
+dropout 0
+dynamic False
+embedding_size 300
+encode_type GRU
+encode_voc_size 200000
+epochs 100
+fastsent_task False
+genlm_task False
+hidden_size 1024
+hidden_size_st 512
+init_range 1
+learning_rate 0.001
+make_disc_shelve True
+max_length 64
+model_file None
+mul_gen 1.0
+n_batches 32000
+name model
+next_context 3
+next_proposals 5
+next_task True
+nlayers_rnn 1
+ns_conj 4
+ns_disc 1
+ns_gen 4
+ns_next 4
+optimizer adagrad
+order_task True
+output_folder Data/Logs
+pre_mode hw
+pre_trained ./Data/SortedFastTextUD.pk
+rnn_dropout 0.0
+save_preds False
+skip_task False
+use_bow False
+voc_file ./Data/vocabfile_new.pk
+starting time 	2017-12-17_015428_564724
+loading embeddings from ./Data/SortedFastTextUD.pk
+loaded embeddings from ./Data/SortedFastTextUD.pk
+made model 	2017-12-17_015758_102061
+starting epoch 0 	2017-12-17_015758_765298
+Traceback (most recent call last):
+  File "Train.py", line 536, in <module>
+    run_joint_epoch(batched_data, modules, args)
+  File "Train.py", line 80, in run_joint_epoch
+    b_xl, b_xr, b_ll, b_lr, b_y = data.next_batch('order', 'train')
+  File "/scratch/zg475/DiscSentEmbed/Utils/DataLoader.py", line 144, in next_batch
+    b_xl, b_ll = self.batch_to_vars(batch_sen_l, "encode")
+  File "/scratch/zg475/DiscSentEmbed/Utils/DataLoader.py", line 114, in batch_to_vars
+    if self.options.use_cpu:
+AttributeError: 'Namespace' object has no attribute 'use_cpu'
